@@ -88,72 +88,74 @@ const Form: FC<FormProps> = ({ onSubmit }) => {
   return (
     <div>
       {!loadingCategories && categories && (
-        <div className="w-full px-8 py-4 bg-black">
-          <Dropdown
-            title="Categories"
-            options={categories}
-            onSelect={handleSelect}
-            setSelected={setSelectedCategory}
-          />
-          {selectedCategory && selectedCategory.children && (
+        <div className="w-full py-4 bg-slate-200 min-h-[100vh]">
+          <div className="w-[75%]  mx-auto ">
             <Dropdown
-              title="Sub-Categories"
-              options={selectedCategory.children}
+              title="Categories"
+              options={categories}
               onSelect={handleSelect}
-              setSelected={setSelectedSubCategory}
+              setSelected={setSelectedCategory}
             />
-          )}
-          {!loadingProps && !!categoryProps?.length && (
-            <Dropdown
-              title="Category Properties"
-              options={categoryProps}
-              onSelect={handleSelect}
-              setSelected={setSelectedCategoryProp}
-            />
-          )}
-          {selectedCategoryProp?.name === "Other" && (
-            <div>
-              <label htmlFor="other" className="pr-8">
-                Please Specify:{" "}
-              </label>
-              <input
-                type="text"
-                name="other"
-                className="text-black px-4 py-2 rounded-md"
-                onChange={(e) => setSelectedOther(e.target.value)}
+            {selectedCategory && selectedCategory.children && (
+              <Dropdown
+                title="Sub-Categories"
+                options={selectedCategory.children}
+                onSelect={handleSelect}
+                setSelected={setSelectedSubCategory}
               />
-            </div>
-          )}
-          {!!selectedCategoryProp?.options?.length && (
-            <Dropdown
-              title="Property Options"
-              options={selectedCategoryProp.options}
-              onSelect={handleSelect}
-              setSelected={setSelectedPropOption}
-            />
-          )}
-          {!loadingPropOptionChildren && !!propOptionChildren?.length && (
-            <Dropdown
-              title="Property Option Children"
-              options={propOptionChildren}
-              onSelect={handleSelect}
-              setSelected={setSelectedPropOption2}
-            />
-          )}
-          {!!selectedPropOption2?.options?.length && (
-            <Dropdown
-              title="Property Option Children Options"
-              options={selectedPropOption2.options}
-              onSelect={handleSelect}
-              setSelected={setSelectedPropOption2Option}
-            />
-          )}
-          <button
-            onClick={handleSubmit}
-            className="bg-gray-500 shadow-md px-6 py-4 rounded-lg mt-8"
-          >
-            Submit
-          </button>
+            )}
+            {!loadingProps && !!categoryProps?.length && (
+              <Dropdown
+                title="Category Properties"
+                options={categoryProps}
+                onSelect={handleSelect}
+                setSelected={setSelectedCategoryProp}
+              />
+            )}
+            {selectedCategoryProp?.name === "Other" && (
+              <div>
+                <label htmlFor="other" className="pr-8">
+                  Please Specify:{" "}
+                </label>
+                <input
+                  type="text"
+                  name="other"
+                  className="text-black px-4 py-2 rounded-md"
+                  onChange={(e) => setSelectedOther(e.target.value)}
+                />
+              </div>
+            )}
+            {!!selectedCategoryProp?.options?.length && (
+              <Dropdown
+                title="Property Options"
+                options={selectedCategoryProp.options}
+                onSelect={handleSelect}
+                setSelected={setSelectedPropOption}
+              />
+            )}
+            {!loadingPropOptionChildren && !!propOptionChildren?.length && (
+              <Dropdown
+                title="Property Option Children"
+                options={propOptionChildren}
+                onSelect={handleSelect}
+                setSelected={setSelectedPropOption2}
+              />
+            )}
+            {!!selectedPropOption2?.options?.length && (
+              <Dropdown
+                title="Property Option Children Options"
+                options={selectedPropOption2.options}
+                onSelect={handleSelect}
+                setSelected={setSelectedPropOption2Option}
+              />
+            )}
+            <button
+              onClick={handleSubmit}
+              className="bg-blue-700 shadow-md px-6 py-2 text-white rounded-lg mt-8"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       )}
     </div>

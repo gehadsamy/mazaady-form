@@ -57,7 +57,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div className="my-4">
       <p className="text-2xl font-bold mb-4">{title}</p>
-      <div className="relative w-1/3 text-left" ref={dropdownRef}>
+      <div className="relative text-left" ref={dropdownRef}>
         <div>
           <button
             onClick={toggleDropdown}
@@ -105,7 +105,7 @@ const Dropdown: React.FC<DropdownProps> = ({
               <li
                 key={index}
                 onClick={() => handleOptionClick(option)}
-                className="cursor-pointer select-none relative px-4 py-2 hover:bg-indigo-50 focus:bg-indigo-50"
+                className="cursor-pointer select-none relative px-2 py-2 hover:bg-indigo-50 focus:bg-indigo-50"
               >
                 <div className="flex gap-2 items-center">
                   {option.image && (
